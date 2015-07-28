@@ -1,0 +1,23 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+    <Button android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonStart_text"
+            android:layout_x="148dp" android:layout_y="282dp" android:layout_gravity="center_horizontal|bottom"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频地址:"
+            android:id="@+id/textView" android:layout_x="9dp" android:layout_y="141dp"
+            android:layout_gravity="left|center_vertical"/>
+    <EditText
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/streamAddress"
+            android:layout_x="1dp" android:layout_y="215dp" android:layout_gravity="right|center_vertical"/>
+
+</FrameLayout>

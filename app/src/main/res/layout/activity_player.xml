@@ -12,4 +12,23 @@
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/streamAddress"/>
 
+    <LinearLayout
+        android:layout_below="@id/surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/decrease"
+            android:text="-"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/increase"
+            android:text="+"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </RelativeLayout>

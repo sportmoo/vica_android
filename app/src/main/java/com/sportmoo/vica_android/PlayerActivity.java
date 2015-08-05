@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 /**
  * Created by Farlshan on 14-7-29.
  */
-public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
+public class PlayerActivity extends Activity implements SurfaceHolder.Callback, View.OnClickListener {
     private static final String TAG = "android-tutorial02";
     private SurfaceView mSurfaceView;
     private int m_frequency;// 采样率
@@ -38,6 +38,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
             this.setResult(100, intent);//设置返回数据
             this.finish();
         }
+        findViewById(R.id.increase).setOnClickListener(this);
+        findViewById(R.id.decrease).setOnClickListener(this);
     }
 
     private boolean startPlay() {
@@ -190,11 +192,30 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback {
 
     private static native int[] naGetAudioParams();
 
+    private static native int delaySecondsNow();
+
+    private static native void setDelaySeconds(int delaySeconds);
+
     static {
         System.loadLibrary("avutil-52");
         System.loadLibrary("avcodec-55");
         System.loadLibrary("avformat-55");
         System.loadLibrary("swscale-2");
         System.loadLibrary("player");
+    }
+
+    @Override
+    public void onClick(View v) {
+        int delaySeconds = delaySecondsNow();
+        switch (v.getId()) {
+            case R.id.increase:
+                setDelaySeconds(++delaySeconds);
+                break;
+            case R.id.decrease:
+                setDelaySeconds(--delaySeconds);
+                break;
+            default:
+                break;
+        }
     }
 }
